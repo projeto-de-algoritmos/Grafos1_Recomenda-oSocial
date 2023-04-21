@@ -20,7 +20,7 @@ Temas:
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 20/0020625  |  João Pedro Anacleto |
 | xx/xxxxxx  |  xxxx xxxx xxxxx |
 
 ## Sobre 
