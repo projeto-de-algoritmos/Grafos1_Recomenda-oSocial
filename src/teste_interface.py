@@ -3,96 +3,34 @@ from faker import Faker
 import numpy as np
 import pandas as pd
 import random
+from grafo_e_bfs import Grafo
+import grafo_e_bfs as gr
 
-faker = Faker()
-# Gera 50 nomes sem repeticao usando o faker
-nomes = np.array([])
-while len(nomes) < 50:
-    nome = faker.name()
-    if nome not in nomes:
-        nomes = np.append(nomes, nome)
+usuarios_csv = pd.read_csv("src/usuarios.csv")
+usuarios = pd.DataFrame(usuarios_csv)
+grafo = Grafo(usuarios, direcionado=False)
 
-# Array com estilos de musica
+for i in usuarios["estilo"]:
+    grafo.adiciona_estilos([('Estilos', str(i))])
 
-estilos_musica = ["Rock", "Pop", "Hip Hop", "Sertanejo", "Eletrônica", ]
+def pesquisa(usuarios, artista, tamanho):
+    lista = gr.bfs(grafo, artista)
+    df = usuarios[(usuarios['artista favorito'] == artista)]
 
-# Array com artistas/bandas de rock
+    print(df['nome'].size)
 
-artistas_rock = [
-    "Led Zeppelin", "The Rolling Stones", "Queen", "AC/DC", "Pink Floyd",
-    "Guns N' Roses", "Nirvana", "The Who", "Black Sabbath", "Metallica",
-    "Deep Purple", "Foo Fighters", "Red Hot Chili Peppers", "Linkin Park",
-    "Pearl Jam", "U2", "Bon Jovi", "The Beatles", "Green Day", "The Doors",
-    "Oasis", "Radiohead", "R.E.M.", "Foo Fighters", "System of a Down",
-    "Arctic Monkeys", "Coldplay", "Muse", "The Strokes", "Iron Maiden"
-]
+    for i in lista:
+        if int(df['nome'].size) >= tamanho:
+            break
 
-# Array com artistas/bandas de pop
+        else:
+            df = df.append(usuarios[(usuarios['artista favorito'] == i)])
 
-artistas_pop = [
-    'Taylor Swift', 'Ariana Grande', 'Ed Sheeran', 'Dua Lipa', 'Justin Bieber',
-    'Billie Eilish', 'Shawn Mendes', 'Camila Cabello', 'The Weeknd', 'Katy Perry',
-    'Maroon 5', 'Bruno Mars', 'Rihanna', 'Selena Gomez', 'Charlie Puth', 'Lady Gaga', 'Post Malone',
-    'Zara Larsson', 'Harry Styles', 'Sia', 'Miley Cyrus', 'Justin Timberlake', 'Lizzo', 'Jason Derulo',
-    'Halsey', 'Sam Smith', 'Jonas Brothers', 'Jessie J', 'Niall Horan', 'Lauv'
-]
+    print(df)
 
-# Array com artistas/bandas de hip hop
-
-artistas_hip_hop = [
-    "Eminem", "Jay-Z", "Kanye West", "Drake", "Kendrick Lamar",
-    "Nas", "Notorious B.I.G.", "Tupac Shakur", "Snoop Dogg", "Lil Wayne",
-    "J. Cole", "Outkast", "Lauryn Hill", "Wu-Tang Clan", "A Tribe Called Quest",
-    "Ice Cube", "MF DOOM", "Run-D.M.C.", "Public Enemy", "KRS-One",
-    "Big Daddy Kane", "Lil Kim", "Gang Starr", "Mos Def", "Common", "Rakim",
-    "Big L", "A$AP Rocky", "Tyler, The Creator", "Chance the Rapper", "Logic"
-]
-
-# Array com artistas de sertanejo
-
-artistas_sertanejo = [
-    "Chitãozinho & Xororó", "Maiara & Maraisa", "Jorge & Mateus", "Gusttavo Lima", "Marília Mendonça",
-    "Zé Neto & Cristiano", "Henrique & Juliano", "Michel Teló", "César Menotti & Fabiano", "Fernando & Sorocaba",
-    "Gino & Geno", "Luan Santana", "Paula Fernandes", "Cristiano Araújo", "Zezé Di Camargo & Luciano", "Daniel",
-    "Munhoz & Mariano", "Jads & Jadson", "Matheus & Kauan", "Guilherme & Santiago", "João Neto & Frederico",
-    "Gian & Giovani", "Gustavo Mioto", "Bruno & Marrone", "Rick & Renner", "Eduardo Costa",
-    "Marcos & Belutti", "Léo Magalhães", "Zezé di Camargo", "Loubet"
-]
-
-# Array com artistas de eletronica
-
-artistas_eletronica = [
-    "Daft Punk", "Avicii", "Calvin Harris", "David Guetta", "Martin Garrix",
-    "The Chainsmokers", "Zedd", "Marshmello", "Skrillex", "Tiesto", "Deadmau5",
-    "Disclosure", "Kygo", "Flume", "Major Lazer", "Kaskade", "Steve Aoki",
-    "Armin van Buuren", "Alesso", "Axwell", "Above & Beyond", "Hardwell", "R3hab", "Nicky Romero",
-    "Diplo", "Porter Robinson", "Eric Prydz", "Nervo", "Alan Walker", "Galantis"
-]
-
-# cria a tabela vazia
-tabela = []
-
-for i in range(50):
-    nome = nomes[i]
-    estilo = random.choice(estilos_musica)
-    artista = ""
-    if estilo == 'Rock':
-        artista = random.choice(artistas_rock)
-    if estilo == 'Pop':
-        artista = random.choice(artistas_pop)
-    if estilo == 'Hip Hop':
-        artista = random.choice(artistas_hip_hop)
-    if estilo == 'Sertanejo':
-        artista = random.choice(artistas_sertanejo)
-    if estilo == 'Eletrônica':
-        artista = random.choice(artistas_eletronica)
-
-    tabela.append([nome, estilo, artista])
-
-
-# A tabela usuarios vai ser o nosso dataframe base para trablharmos em cima do grafo
-usuarios = pd.DataFrame(tabela, columns=['nome', 'estilo', 'artista favorito'])
-
+    pessoas_list = df['nome'].tolist()
+    
+    return pessoas_list
 
 class TelaPrincipal(tk.Frame):
     def __init__(self, master=None):
@@ -121,9 +59,14 @@ class TelaPrincipal(tk.Frame):
         self.button_tela_pesquisar.grid(row=3, column=1, padx=5, pady=5)
 
     def abrir_tela_pesquisa(self):
+        artista_fav = self.entry_artista_favorito.get()
+        tam_lista = self.entry_tamanho_lista.get()
+
+        pessoas = pesquisa(usuarios, artista_fav, int(tam_lista))
+
         self.master.destroy()
         nova_tela = tk.Tk()
-        TelaPesquisa(nova_tela)
+        TelaPesquisa(nova_tela, pessoas=pessoas)
 
     def abrir_tela_cadastro(self):
         self.master.destroy()
@@ -184,7 +127,7 @@ class TelaCadastro(tk.Frame):
 
 
 class TelaPesquisa(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, master=None, pessoas=list):
         super().__init__(master)
         self.master = master
         self.master.title("Pessoas Sugeridas")
@@ -193,11 +136,12 @@ class TelaPesquisa(tk.Frame):
         self.listbox_pessoas = tk.Listbox(self.master)
         self.listbox_pessoas.pack(padx=5, pady=5)
 
-        # Fazer a busca no grafo das pessoas que escutam aquele mesmo artista e retornar em um for dando insert
+        # Fazer a busca no grafo das pessoas que escutam aquele mesmo artista ou artistas o mais parecido possivel e retornar em um for dando insert
         # Adicionar itens à Listbox (apenas como exemplo)
-        self.listbox_pessoas.insert(tk.END, "Pessoa 1")
-        self.listbox_pessoas.insert(tk.END, "Pessoa 2")
-        self.listbox_pessoas.insert(tk.END, "Pessoa 3")
+        print(pessoas)
+
+        for i in pessoas:
+            self.listbox_pessoas.insert(tk.END, i)
 
         # botao conectar
         self.button_conectar = tk.Button(

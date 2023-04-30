@@ -21,7 +21,7 @@ Temas:
 |Matrícula | Aluno |
 | -- | -- |
 | 20/0020625  |  João Pedro Anacleto |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 20/0072854  |  Bruno Seiji Kishibe |
 
 ## Sobre 
 Descreva os objetivos do seu projeto e como ele funciona. 
@@ -30,7 +30,7 @@ Descreva os objetivos do seu projeto e como ele funciona.
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
+**Linguagem**: python<br>
 **Framework**: (caso exista)<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
