@@ -13,10 +13,24 @@ grafo = Grafo(usuarios, direcionado=False)
 for i in usuarios["estilo"]:
     grafo.adiciona_estilos([('Estilos', str(i))])
 
-def pesquisa(usuarios, artista):
-    df = usuarios.query(f'artista favorito == {artista}')
-    tamanho = df.size
-    return df, tamanho
+def pesquisa(usuarios, artista, tamanho):
+    lista = gr.bfs(grafo, artista)
+    df = usuarios[(usuarios['artista favorito'] == artista)]
+
+    print(df['nome'].size)
+
+    for i in lista:
+        if int(df['nome'].size) >= tamanho:
+            break
+
+        else:
+            df = df.append(usuarios[(usuarios['artista favorito'] == i)])
+
+    print(df)
+
+    pessoas_list = df['nome'].tolist()
+    
+    return pessoas_list
 
 class TelaPrincipal(tk.Frame):
     def __init__(self, master=None):
@@ -45,9 +59,14 @@ class TelaPrincipal(tk.Frame):
         self.button_tela_pesquisar.grid(row=3, column=1, padx=5, pady=5)
 
     def abrir_tela_pesquisa(self):
+        artista_fav = self.entry_artista_favorito.get()
+        tam_lista = self.entry_tamanho_lista.get()
+
+        pessoas = pesquisa(usuarios, artista_fav, int(tam_lista))
+
         self.master.destroy()
         nova_tela = tk.Tk()
-        TelaPesquisa(nova_tela)
+        TelaPesquisa(nova_tela, pessoas=pessoas)
 
     def abrir_tela_cadastro(self):
         self.master.destroy()
@@ -108,7 +127,7 @@ class TelaCadastro(tk.Frame):
 
 
 class TelaPesquisa(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, master=None, pessoas=list):
         super().__init__(master)
         self.master = master
         self.master.title("Pessoas Sugeridas")
@@ -119,9 +138,10 @@ class TelaPesquisa(tk.Frame):
 
         # Fazer a busca no grafo das pessoas que escutam aquele mesmo artista ou artistas o mais parecido possivel e retornar em um for dando insert
         # Adicionar itens à Listbox (apenas como exemplo)
-        self.listbox_pessoas.insert(tk.END, "Pessoa 1")
-        self.listbox_pessoas.insert(tk.END, "Pessoa 2")
-        self.listbox_pessoas.insert(tk.END, "Pessoa 3")
+        print(pessoas)
+
+        for i in pessoas:
+            self.listbox_pessoas.insert(tk.END, i)
 
         # botao conectar
         self.button_conectar = tk.Button(
