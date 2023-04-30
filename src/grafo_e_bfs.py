@@ -1,6 +1,5 @@
 from collections import defaultdict
 import pandas as pd
-import random
 import numpy as np
 from faker import Faker
 
@@ -27,8 +26,15 @@ class Grafo(object):
     #Adciona as arestas no grafo
     def adiciona_arestas(self, arestas):
         
+        for i, j in zip(arestas["estilo"], arestas["artista favorito"]):
+            self.tamanho += 1
+            self.adiciona_arco(i, j)
+
+    def adiciona_estilos(self, arestas):
+        
         for u, v in arestas:
             self.tamanho += 1
+            self.direcionado = True
             self.adiciona_arco(u, v)
 
     #adciona um arco entre u e v
@@ -75,9 +81,6 @@ def bfs(G, inicio: str):
 
     visitado = {}
 
-    IF = 0
-    FF = 0
-
     fila = []
     ret = []
     fila.append(inicio)
@@ -87,14 +90,15 @@ def bfs(G, inicio: str):
     visitado[str(chave)] = []
     visitado[str(chave)].append(inicio)
 
-    FF+=1
+    count = 0   #usado para acessar estilo
+
 
     while fila:
-        IF = (IF + 1) % G.tamanho
         pr = fila.pop(0)
         ret.append(pr)
+        l = list(G["Estilos"])
 
-        for j in list(G.adj.keys()):
+        for j in list(G[pr]):
             cha = hash_string(j)
             if str(cha) not in visitado:
                 visitado[str(cha)] = []
@@ -106,4 +110,8 @@ def bfs(G, inicio: str):
                 visitado[cha].append(j)
                 fila.append(j)
 
-    return ret   
+        if fila == []:
+            if count<len(l):
+                fila.append(l[count])
+                count+=1
+    return ret
