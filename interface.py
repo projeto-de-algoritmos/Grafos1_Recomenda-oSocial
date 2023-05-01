@@ -2,7 +2,6 @@ import tkinter as tk
 from faker import Faker
 import numpy as np
 import pandas as pd
-import random
 from grafo_e_bfs import Grafo
 import grafo_e_bfs as gr
 
@@ -12,6 +11,7 @@ grafo = Grafo(usuarios, direcionado=False)
 
 for i in usuarios["estilo"]:
     grafo.adiciona_estilos([('Estilos', str(i))])
+
 
 def pesquisa(usuarios, artista, tamanho):
     lista = gr.bfs(grafo, artista)
@@ -29,8 +29,9 @@ def pesquisa(usuarios, artista, tamanho):
     print(df)
 
     pessoas_list = df['nome'].tolist()
-    
+
     return pessoas_list
+
 
 class TelaPrincipal(tk.Frame):
     def __init__(self, master=None):
@@ -144,24 +145,13 @@ class TelaPesquisa(tk.Frame):
             self.listbox_pessoas.insert(tk.END, i)
 
         # botao conectar
-        self.button_conectar = tk.Button(
-            self.master, text="Conectar", command=self.conectar)
-        self.button_conectar.pack(padx=5, pady=5)
 
         self.button_voltar = tk.Button(
             self.master, text="Voltar", command=self.voltar)
         self.button_voltar.pack(padx=5, pady=5)
 
-    def conectar(self):
-        # Função a ser executada ao clicar no botão "Conectar"
-        selected_index = self.listbox_pessoas.curselection()
-        if selected_index:
-            selected_person = self.listbox_pessoas.get(selected_index)
-            print(f"Conectando com: {selected_person}")
-        else:
-            print("Nenhuma pessoa selecionada!")
-
     # funcao de voltar
+
     def voltar(self):
         self.master.destroy()
         nova_tela = tk.Tk()
