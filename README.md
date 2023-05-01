@@ -58,6 +58,12 @@ Para rodar o projeto sera necessario o [python](https://www.python.org/downloads
 
 Caso os comando python3 interface.py nao abra executa alguns destes comandos python interface.py.
 
+### Exemplo da estrutura de um grafo utilizado no projeto
+
+![](src/screenshots/4.png)
+
+- Após iniciada a aplicação e fornecidos o número de pessoas e artista favorito na pagina de busca, a busca em largura retorna o artista que mas condiz com o da busca, para que assim possa ser realizada a busca por usuários.
+
 ## Apresentação
 
 [Apresentação](/apresentacao/apresentação.mp4)
