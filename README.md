@@ -61,5 +61,3 @@ Caso os comando python3 interface.py nao abra executa alguns destes comandos pyt
 ## Apresentação
 
 [Apresentação](src/apresentacao/apresentação.mp4)
-
-<iframe src="https://unbbr.sharepoint.com/sites/ProjetoAlgoritimo-trabalhos/_layouts/15/embed.aspx?UniqueId=134de4fb-6f72-4fd9-9efe-481c1caa5a89&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Apresentação"></iframe>
