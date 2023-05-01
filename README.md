@@ -60,7 +60,7 @@ Caso os comando python3 interface.py nao abra executa alguns destes comandos pyt
 
 ### Exemplo da estrutura de um grafo utilizado no projeto
 
-![](src/screenshots/4.png)
+![](src/screenshots/4.PNG)
 
 - Após iniciada a aplicação e fornecidos o número de pessoas e artista favorito na pagina de busca, a busca em largura retorna o artista que mas condiz com o da busca, para que assim possa ser realizada a busca por usuários.
 
