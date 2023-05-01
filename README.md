@@ -60,4 +60,4 @@ Caso os comando python3 interface.py nao abra executa alguns destes comandos pyt
 
 ## Apresentação
 
-[Apresentação](src/apresentacao/apresentação.mp4)
+[Apresentação](/apresentacao/apresentação.mp4)
