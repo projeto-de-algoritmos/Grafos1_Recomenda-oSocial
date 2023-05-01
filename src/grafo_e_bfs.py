@@ -12,6 +12,7 @@ class Grafo(object):
         self.direcionado = direcionado
         self.tamanho = tamanho
         self.adiciona_arestas(arestas)
+        self.conecta_subgeneros(arestas)
 
     #obtem a lista de vertices do grafo
     def get_vertices(self):
@@ -26,7 +27,7 @@ class Grafo(object):
     #Adciona as arestas no grafo
     def adiciona_arestas(self, arestas):
         
-        for i, j in zip(arestas["estilo"], arestas["artista favorito"]):
+        for i, j in zip(arestas["sub_genero"], arestas["artista favorito"]):
             self.tamanho += 1
             self.adiciona_arco(i, j)
 
@@ -36,6 +37,12 @@ class Grafo(object):
             self.tamanho += 1
             self.direcionado = True
             self.adiciona_arco(u, v)
+
+    def conecta_subgeneros(self, arestas):
+        
+        for i, j in zip(arestas["estilo"], arestas["sub_genero"]):
+            self.tamanho += 1
+            self.adiciona_arco(i, j)
 
     #adciona um arco entre u e v
     def adiciona_arco(self, u, v):
@@ -64,10 +71,7 @@ class Grafo(object):
         return self.adj[v]
     
 def hash_string(palavra):
-    a = np.fromstring(palavra, dtype=np.uint8)
-    soma = 0
-    for i in a:
-        soma += i
+    soma = hash(palavra)
     return soma
 
 def verifica_dict(visitado:dict, chave:int, nome:str):
@@ -107,11 +111,11 @@ def bfs(G, inicio: str):
 
 
             elif verifica_dict(visitado=visitado, chave=cha, nome=j) != True:    
-                visitado[cha].append(j)
+                visitado[str(cha)].append(j)
                 fila.append(j)
 
         if fila == []:
             if count<len(l):
                 fila.append(l[count])
                 count+=1
-    return ret
+    return ret   

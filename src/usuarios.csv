@@ -1,51 +1,51 @@
-,user_id,nome,estilo,artista favorito
-0,0,Jeremiah Moore,Hip Hop,Tupac Shakur
-1,1,Brooke Rodgers,Pop,Miley Cyrus
-2,2,Jeffrey Lutz,Rock,Muse
-3,3,Elizabeth Schmidt,Sertanejo,Chitãozinho & Xororó
-4,4,Jose French,Sertanejo,Munhoz & Mariano
-5,5,Michael Gibson,Rock,Foo Fighters
-6,6,Cynthia Smith,Rock,The Doors
-7,7,Darlene Tucker,Rock,Red Hot Chili Peppers
-8,8,Brent Reynolds,Pop,Bruno Mars
-9,9,Marc Young,Rock,Queen
-10,10,Candace Larson,Rock,Linkin Park
-11,11,Steven Moran,Eletrônica,Major Lazer
-12,12,Crystal Wright,Eletrônica,The Chainsmokers
-13,13,Patrick Gibbs,Eletrônica,Alan Walker
-14,14,Linda Schwartz,Pop,Charlie Puth
-15,15,Dean Vega,Rock,Deep Purple
-16,16,Yvonne Rosario,Rock,Radiohead
-17,17,Joan Harper,Hip Hop,Lil Kim
-18,18,Melissa Klein,Eletrônica,Disclosure
-19,19,Courtney May,Pop,Lady Gaga
-20,20,Cynthia Wang,Rock,Pink Floyd
-21,21,Robert Lee,Sertanejo,Eduardo Costa
-22,22,Maria Williams,Pop,Miley Cyrus
-23,23,Linda Mcintyre,Eletrônica,Zedd
-24,24,Catherine Lopez,Rock,Red Hot Chili Peppers
-25,25,Nathaniel Smith,Rock,Deep Purple
-26,26,Alexandra Simpson,Sertanejo,Gusttavo Lima
-27,27,Jennifer Monroe,Sertanejo,Zezé di Camargo
-28,28,Cindy Whitney DDS,Sertanejo,Gusttavo Lima
-29,29,Michelle Kane,Sertanejo,João Neto & Frederico
-30,30,Mark Rodgers,Sertanejo,Gusttavo Lima
-31,31,Timothy Dixon,Sertanejo,Guilherme & Santiago
-32,32,Thomas Guerrero,Hip Hop,Lil Wayne
-33,33,Kevin Walters,Pop,Katy Perry
-34,34,Christine Martinez,Eletrônica,Flume
-35,35,Dr. Darius Wood,Eletrônica,Avicii
-36,36,Mark Sanders,Sertanejo,Jorge & Mateus
-37,37,Diane Myers,Sertanejo,Zé Neto & Cristiano
-38,38,Eric Smith,Pop,Zara Larsson
-39,39,Roy Wilson,Eletrônica,The Chainsmokers
-40,40,Marvin Gomez,Eletrônica,R3hab
-41,41,Rachel Combs,Eletrônica,Kaskade
-42,42,Andrew Johnson,Rock,The Beatles
-43,43,Maureen Mason,Rock,The Strokes
-44,44,Kristopher Miller,Sertanejo,Gusttavo Lima
-45,45,Joseph Ross,Sertanejo,Gino & Geno
-46,46,Danielle Reyes,Rock,System of a Down
-47,47,Renee Wiley,Sertanejo,Daniel
-48,48,Daniel Martinez,Eletrônica,Flume
-49,49,Michael Moore,Sertanejo,Daniel
+,user_id,nome,estilo,artista favorito,sub_genero
+0,0,Julie Gonzalez,Rock,R.E.M.,Punk
+1,1,Michelle Rodriguez,Rock,Black Sabbath,Progressivo
+2,2,Matthew Mccarty,Sertanejo,Henrique & Juliano,Música Raiz
+3,3,David Richardson,Eletrônica,Hardwell,Trance
+4,4,Amanda Thompson,Hip Hop,"Tyler, The Creator",Rap
+5,5,Eric Armstrong,Rock,Green Day,Progressivo
+6,6,Jason White,Hip Hop,Drake,Old School
+7,7,Brian Davidson,Eletrônica,Tiesto,Dubstep
+8,8,Cameron Gonzalez,Hip Hop,Rakim,Gangsta
+9,9,Todd Patterson,Rock,The Rolling Stones,Indie
+10,10,Mr. Christopher Nixon II,Sertanejo,Loubet,Folk
+11,11,Debbie Garcia,Rock,Muse,Indie
+12,12,Jessica Harmon,Sertanejo,Rick & Renner,Folk
+13,13,Lisa Olson,Pop,Lizzo,Bubblegum pop
+14,14,Teresa Todd,Pop,The Weeknd,R&B
+15,15,Sandra Davis,Pop,Justin Bieber,R&B
+16,16,Martin Cunningham,Rock,Radiohead,Clássico
+17,17,Benjamin Choi,Pop,Dua Lipa,Bubblegum pop
+18,18,Emily Santiago,Hip Hop,Notorious B.I.G.,Boom Bap
+19,19,Victoria Aguirre,Rock,System of a Down,Clássico
+20,20,Jeremy Garcia,Sertanejo,Eduardo Costa,Modão
+21,21,Tyler Goodman,Hip Hop,Logic,Boom Bap
+22,22,Tom Austin,Eletrônica,Diplo,Techno
+23,23,Anthony Molina,Eletrônica,Nervo,Dubstep
+24,24,Brittney Ray,Rock,Arctic Monkeys,Metal
+25,25,Nicole Kennedy,Pop,Jessie J,Indie pop
+26,26,Lauren Roberts,Rock,Red Hot Chili Peppers,Progressivo
+27,27,Eric Parker,Rock,Arctic Monkeys,Metal
+28,28,Amanda Burke,Rock,Queen,Punk
+29,29,Willie Mueller,Eletrônica,Eric Prydz,Drum and Bass
+30,30,Charles Lynch,Hip Hop,Notorious B.I.G.,Boom Bap
+31,31,Justin Gill,Hip Hop,J. Cole,Trap
+32,32,Jennifer Cox,Hip Hop,Wu-Tang Clan,Old School
+33,33,Andrew Boyer,Sertanejo,Henrique & Juliano,Música Raiz
+34,34,Amy Andersen,Pop,Sam Smith,Electropop
+35,35,Nicholas Rivas,Eletrônica,Armin van Buuren,Chillout    
+36,36,Matthew Smith,Rock,The Rolling Stones,Indie
+37,37,Jonathan Klein,Eletrônica,Above & Beyond,House
+38,38,Thomas Morales,Eletrônica,R3hab,House
+39,39,Yolanda Fischer,Pop,Jessie J,Indie pop
+40,40,Hannah Smith,Rock,Muse,Indie
+41,41,Mark Rodriguez,Eletrônica,Armin van Buuren,Chillout    
+42,42,Douglas Davis,Sertanejo,César Menotti & Fabiano,
+43,43,Christopher Ortiz,Pop,Lady Gaga,Dance
+44,44,Shane Johnson,Hip Hop,Lil Kim,Rap
+45,45,Anna Ortiz,Pop,Jason Derulo,Electropop
+46,46,Mrs. Melissa Edwards,Rock,Muse,Indie
+47,47,Joshua Mcbride,Rock,Black Sabbath,Progressivo
+48,48,David Smith,Rock,The Beatles,Metal
+49,49,Ryan Powers,Hip Hop,Lil Wayne,Trap
